@@ -184,7 +184,7 @@ int main(int argc, const char **argv) {
     const char* fname = !OutputFilename.empty() ? OutputFilename.c_str() : "safe_library.json";
 
     SmallString<1024> JSONDatabasePath(Directory);
-    llvm::sys::path::append(JSONDatabasePath, "safe_library.json");
+    llvm::sys::path::append(JSONDatabasePath, fname);
 
     RaiiStdioFile f(fopen(JSONDatabasePath.c_str(), "wb"));
     if (!OutputFilename.empty() && !f.get()) {
